@@ -1,0 +1,28 @@
+{
+  "name": "@rookeys/balance-game-api",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "index.js",
+  "homepage": "https://github.com/KoJaem/balance-game-api",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KoJaem/balance-game-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KoJaem/balance-game-api/issues"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "openapi": "openapi-generator-cli generate -i *Swagger json url* -g typescript-axios -o ./models -c ./openapi.json --skip-validate-spec"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "keywords": [
+    "balance-game-api",
+    "rookeys"
+  ],
+  "devDependencies": {
+    "@openapitools/openapi-generator-cli": "^2.15.3"
+  }
+}

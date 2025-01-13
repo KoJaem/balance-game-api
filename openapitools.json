@@ -1,7 +1,22 @@
 {
-  "$schema": "./node_modules/@openapitools/openapi-generator-cli/config.schema.json",
+  "$schema": "node_modules/@openapitools/openapi-generator-cli/config.schema.json",
   "spaces": 2,
   "generator-cli": {
-    "version": "7.10.0"
+    "version": "7.10.0",
+    "generators": {
+      "balance-game-api": {
+        "generatorName": "typescript-axios",
+        "inputSpec": "https://d7d3-14-56-115-119.ngrok-free.app/v3/api-docs/all",
+        "output": "./src",
+        "generateAliasAsModel": true,
+        "additional-properties": {
+          "supportsES6": true,
+          "useSingleRequestParameter": true,
+          "withSeparateModelsAndApi": true,
+          "apiPackage": "api",
+          "modelPackage": "models"
+        }
+      }
+    }
   }
 }

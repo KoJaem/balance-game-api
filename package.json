@@ -2,7 +2,7 @@
   "name": "balance-game-api",
   "version": "0.0.5",
   "description": "Rookeys Organization Balance Game API",
-  "main": "dist/index.ts",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "homepage": "https://github.com/KoJaem/balance-game-api",
   "repository": {
@@ -16,11 +16,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "openapi-generator-cli generate && tsc"
   },
-  "author": "",
+  "author": "KoJaem",
   "license": "ISC",
   "keywords": [
     "balance-game-api",
-    "rookeys"
+    "Rookeys"
   ],
   "devDependencies": {
     "@openapitools/openapi-generator-cli": "^2.15.3",

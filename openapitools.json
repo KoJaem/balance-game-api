@@ -6,7 +6,7 @@
     "generators": {
       "balance-game-api": {
         "generatorName": "typescript-axios",
-        "inputSpec": "https://d7d3-14-56-115-119.ngrok-free.app/v3/api-docs/all",
+        "inputSpec": "https://api.balancegame.site/v3/api-docs/all",
         "output": "./src",
         "generateAliasAsModel": true,
         "additional-properties": {

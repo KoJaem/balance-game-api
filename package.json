@@ -2,8 +2,8 @@
   "name": "balance-game-api",
   "version": "0.0.4",
   "description": "Rookeys Organization Balance Game API",
-  "main": "lib/index.ts",
-  "types": "lib/index.d.ts",
+  "main": "dist/index.ts",
+  "types": "dist/index.d.ts",
   "homepage": "https://github.com/KoJaem/balance-game-api",
   "repository": {
     "type": "git",

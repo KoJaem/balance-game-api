@@ -25,15 +25,15 @@ jobs:
       - name: Update package version
         run: npm version patch --no-git-tag-version
 
-      - name: Publish to npm
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - name: Commit version update
         run: |
           git config --global user.name "${{ secrets.GH_USER_NAME }}"
           git config --global user.email "${{ secrets.GH_USER_EMAIL }}"
           git add package.json package-lock.json
-          git commit -m "chore: bump patch version"
+          git commit -m "Update Version"
           git push
+
+      - name: Publish to npm
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

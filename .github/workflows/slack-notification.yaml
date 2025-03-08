@@ -1,0 +1,74 @@
+on:
+  workflow_call:
+    inputs:
+      version:
+        required: true
+        type: string
+    secrets:
+      SLACK_BALANCE_GAME_NOTIFICATION_WEBHOOK_URL:
+        required: true
+
+jobs:
+  slack-notification:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Slack Notification
+        uses: slackapi/slack-github-action@v2.0.0
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_BALANCE_GAME_NOTIFICATION_WEBHOOK_URL }}
+        with:
+          webhook-type: incoming-webhook
+          payload: |
+            {
+              "attachments": [
+                {
+                  "color": "#36a64f",
+                  "fallback": "📦 OpenAPI 패키지가 배포되었습니다.",
+                  "blocks": [
+                    {
+                      "type": "header",
+                      "text": {
+                        "type": "plain_text",
+                        "text": "📦 OpenAPI 패키지가 배포되었습니다."
+                      }
+                    },
+                    {
+                      "type": "divider"
+                    },
+                    {
+                      "type": "section",
+                      "text": {
+                        "type": "mrkdwn",
+                        "text": "*Balance-game-api:* <https://www.npmjs.com/package/balance-game-api|Click Here>"
+                      }
+                    },
+                    {
+                      "type": "section",
+                      "fields": [
+                        {
+                          "type": "mrkdwn",
+                          "text": "*패키지명*\n`balance-game-api`"
+                        },
+                        {
+                          "type": "mrkdwn",
+                          "text": "*프론트엔드 Todo*\nAPI 업데이트 후 빌드확인"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "section",
+                      "fields": [
+                        {
+                          "type": "mrkdwn",
+                          "text": "*Version*\n`${{inputs.version}}`"
+                        },
+                        {
+                          "type": "mrkdwn",
+                          "text": "*Actions 확인하기*\n<https://github.com/KoJaem/balance-game-api/actions|Click here>"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }

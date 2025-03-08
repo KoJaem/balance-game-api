@@ -19,13 +19,13 @@ jobs:
               "attachments": [
                 {
                   "color": "#FF0000",
-                  "fallback": "⛔ 에러 Slack 테스트",
+                  "fallback": "OpenAPI publish 실패",
                   "blocks": [
                     {
                       "type": "header",
                       "text": {
                         "type": "plain_text",
-                        "text": "⛔ 에러 Slack 테스트"
+                        "text": "OpenAPI publish 실패"
                       }
                     },
                     {

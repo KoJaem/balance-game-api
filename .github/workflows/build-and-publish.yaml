@@ -10,11 +10,6 @@ jobs:
     outputs:
       package_version: ${{ steps.get_version.outputs.version }}
     steps:
-      # startregion 에러 테스트 후 삭제
-      - name: Error Test
-        run: exit 1
-      # endregion 에러 테스트 후 삭제
-
       - name: Checkout repository
         uses: actions/checkout@v4
 

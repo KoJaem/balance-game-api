@@ -33,6 +33,8 @@ jobs:
           git add package.json package-lock.json
           git commit -m "Update Version"
           git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - name: Publish to npm
         run: npm publish

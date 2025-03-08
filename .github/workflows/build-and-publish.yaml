@@ -2,7 +2,6 @@ name: build and Publish Package
 
 on:
   repository_dispatch:
-    types: [trigger-build]
 
 jobs:
   build-and-publish:

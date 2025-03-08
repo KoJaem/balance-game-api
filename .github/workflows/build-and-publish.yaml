@@ -1,6 +1,7 @@
 name: build and Publish Package
 
 on:
+  workflow_dispatch:
   repository_dispatch:
 
 jobs:

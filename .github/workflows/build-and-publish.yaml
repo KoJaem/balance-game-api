@@ -10,6 +10,11 @@ jobs:
     outputs:
       package_version: ${{ steps.get_version.outputs.version }}
     steps:
+      # startregion 에러 테스트 후 삭제
+      - name: Error Test
+        run: exit 1
+      # endregion 에러 테스트 후 삭제
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -52,4 +57,10 @@ jobs:
     uses: ./.github/workflows/slack-notification.yaml
     with:
       version: ${{ needs.build-and-publish.outputs.package_version }}
+    secrets: inherit
+
+  slack-error-notification:
+    if: failure()
+    needs: build-and-publish
+    uses: ./.github/workflows/slack-error-notification.yaml
     secrets: inherit

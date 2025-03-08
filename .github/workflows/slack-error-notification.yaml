@@ -1,0 +1,57 @@
+on:
+  workflow_call:
+    secrets:
+      SLACK_BALANCE_GAME_NOTIFICATION_WEBHOOK_URL:
+        required: true
+
+jobs:
+  slack-notification-failure:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Slack Error Notification
+        uses: slackapi/slack-github-action@v2.0.0
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_BALANCE_GAME_NOTIFICATION_WEBHOOK_URL }}
+        with:
+          webhook-type: incoming-webhook
+          payload: |
+            {
+              "attachments": [
+                {
+                  "color": "#FF0000",
+                  "fallback": "⛔ 에러 Slack 테스트",
+                  "blocks": [
+                    {
+                      "type": "header",
+                      "text": {
+                        "type": "plain_text",
+                        "text": "⛔ 에러 Slack 테스트"
+                      }
+                    },
+                    {
+                      "type": "divider"
+                    },
+                    {
+                      "type": "section",
+                      "text": {
+                        "type": "mrkdwn",
+                        "text": "*패키지명:* `balance-game-api`"
+                      }
+                    },
+                    {
+                      "type": "section",
+                      "fields": [
+                        {
+                          "type": "mrkdwn",
+                          "text": "*Actions 확인하기*\n<https://github.com/KoJaem/balance-game-api/actions|Click here>"
+                        },
+                        {
+                          "type": "mrkdwn",
+                          "text": "*Todo*\n원인 확인 및 재빌드"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }

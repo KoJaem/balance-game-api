@@ -1,6 +1,6 @@
 {
   "name": "balance-game-api",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Rookeys Organization Balance Game API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

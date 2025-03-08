@@ -28,10 +28,6 @@ jobs:
       - name: Update package version
         run: npm version patch --no-git-tag-version
 
-      - name: Get package version
-        id: get_version
-        run: echo "version=$(jq -r .version package.json)" >> $GITHUB_ENV
-
       - name: Commit version update
         run: |
           git config --global user.name ${{ secrets.GH_USER_NAME }}
@@ -41,6 +37,10 @@ jobs:
           git push
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+      - name: Get package version
+        id: get_version
+        run: echo "version=$(jq -r .version package.json)" >> $GITHUB_OUTPUT
 
       - name: Publish to npm
         run: npm publish

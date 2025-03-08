@@ -34,7 +34,7 @@ jobs:
           git commit -m "Update Version"
           git push
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - name: Publish to npm
         run: npm publish

@@ -39,7 +39,7 @@ jobs:
                       "type": "section",
                       "text": {
                         "type": "mrkdwn",
-                        "text": "*Balance-game-api:* <https://www.npmjs.com/package/balance-game-api|Click Here>"
+                        "text": "*balance-game-api:* <https://www.npmjs.com/package/balance-game-api|Click Here>"
                       }
                     },
                     {
